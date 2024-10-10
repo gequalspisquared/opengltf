@@ -1,6 +1,8 @@
 #include "Application.h"
 
 #include "Renderer/Shader.h"
+#include "Renderer/IndexBuffer.h"
+#include "Renderer/VertexBuffer.h"
 
 #include <fmt/core.h>
 #include <glad/glad.h>
@@ -107,16 +109,10 @@ void Application::run()
     unsigned int va;
     glGenVertexArrays(1, &va);
     glBindVertexArray(va);
-    unsigned int vb;
-    glGenBuffers(1, &vb);
-    glBindBuffer(GL_ARRAY_BUFFER, vb);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    VertexBuffer vb(vertices, sizeof(vertices));
     glEnableVertexAttribArray(0);
-    unsigned int ib;
-    glGenBuffers(1, &ib);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ib);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    IndexBuffer ib(indices, sizeof(indices));
 
     Shader shader_program(SHADER_PATH "shader.vs", SHADER_PATH "shader.fs");
 

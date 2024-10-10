@@ -3,8 +3,11 @@
 class VertexBuffer
 {
 public:
-    VertexBuffer();
+    VertexBuffer(const void* data, size_t size);
     ~VertexBuffer();
+
+    void bind() const;
+    void unbind() const;
 
 private:
     unsigned int m_id = 0;

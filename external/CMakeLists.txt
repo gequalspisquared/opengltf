@@ -47,3 +47,4 @@ target_sources(imgui PRIVATE
 )
 
 target_include_directories(imgui PUBLIC imgui)
+target_link_libraries(imgui PRIVATE glfw)
