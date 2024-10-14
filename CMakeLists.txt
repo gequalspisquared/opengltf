@@ -22,14 +22,20 @@ set(SRC_FILES
     "${SRC_DIR}/Application.cpp"
 
     # Renderer
+    "${INC_DIR}/Renderer/Camera.h"
+    "${SRC_DIR}/Renderer/Camera.cpp"
     "${INC_DIR}/Renderer/IndexBuffer.h"
     "${SRC_DIR}/Renderer/IndexBuffer.cpp"
     "${INC_DIR}/Renderer/Shader.h"
     "${SRC_DIR}/Renderer/Shader.cpp"
+    "${INC_DIR}/Renderer/Texture.h"
+    "${SRC_DIR}/Renderer/Texture.cpp"
     "${INC_DIR}/Renderer/VertexArray.h"
     "${SRC_DIR}/Renderer/VertexArray.cpp"
     "${INC_DIR}/Renderer/VertexBuffer.h"
     "${SRC_DIR}/Renderer/VertexBuffer.cpp"
+    "${INC_DIR}/Renderer/VertexBufferLayout.h"
+    "${SRC_DIR}/Renderer/VertexBufferLayout.cpp"
 )
 
 add_executable(${CMAKE_PROJECT_NAME} "${SRC_FILES}")
